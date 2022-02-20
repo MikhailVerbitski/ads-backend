@@ -129,7 +129,7 @@ GEM
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
-    puma (5.6.2)
+    puma (4.3.11)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -191,7 +191,7 @@ DEPENDENCIES
   pg (~> 1.1)
   pry
   pry-byebug
-  puma (~> 5.0)
+  puma (~> 4.3)
   rack-cors
   rails (~> 7.0.2, >= 7.0.2.2)
   tzinfo-data
