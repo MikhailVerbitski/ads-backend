@@ -8,7 +8,8 @@ gem "puma", "~> 4.3"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
-gem "devise", "~> 4.8"
+gem "devise"
+gem 'devise-jwt'
 gem 'rack-cors'
 gem 'enumerize', '~> 2.5.0'
 

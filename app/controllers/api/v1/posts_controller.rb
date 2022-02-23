@@ -1,4 +1,6 @@
 class Api::V1::PostsController < ApplicationController
+  before_action :authenticate_user!
+
   # def new; end
   # def edit; end
   def show

@@ -4,18 +4,19 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable,
-         :registerable,
-         :recoverable,
-         :rememberable,
-         :trackable,
-         :timeoutable,
-         :validatable,
-         :confirmable
+  devise  :database_authenticatable, :registerable,
+          :recoverable,
+          :rememberable,
+          :trackable,
+          :timeoutable,
+          :validatable,
+          :confirmable,
+          :jwt_authenticatable,
+          jwt_revocation_strategy: JwtDenylist
 
-  before_save :change_role
+  # before_save :change_role
 
-  def change_role
-    self.role = :user
-  end
+  # def change_role
+  #   self.role = :user
+  # end
 end
