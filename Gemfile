@@ -12,6 +12,7 @@ gem "devise"
 gem 'devise-jwt'
 gem 'rack-cors'
 gem 'enumerize', '~> 2.5.0'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry'
