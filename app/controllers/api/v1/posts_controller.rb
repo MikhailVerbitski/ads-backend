@@ -1,5 +1,7 @@
 class Api::V1::PostsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
+
+  PERMITTED_PARAMS = %i[body].freeze
 
   # def new; end
   # def edit; end
@@ -7,11 +9,13 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    # if @post.save
-    #   redirect_to @post
-    # else
-    #   flash.alert = "Can't save!"
-    # end
+    post = Post.new(create_params)
+    post.user_id = current_user.id
+    if post.save
+      render json: post.to_json, status: :ok
+    else
+      render json: { message: "Can't save!" }, status: 500
+    end
   end
 
   def update
@@ -28,6 +32,15 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def index
-    render json: Post.all
+    _pagy, records = pagy(Post, items: params[:count], page:  params[:page])
+    render json: {
+      records: records,
+    }
+  end
+
+  private
+
+  def create_params
+    params.require(controller_name.classify.downcase.to_sym).permit(self.class::PERMITTED_PARAMS)
   end
 end

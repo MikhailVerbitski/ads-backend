@@ -10,9 +10,11 @@ gem "bootsnap", require: false
 
 gem "devise"
 gem 'devise-jwt'
+gem 'cancancan'
 gem 'rack-cors'
 gem 'enumerize', '~> 2.5.0'
 gem 'dotenv-rails'
+gem 'pagy', '~> 5.10'
 
 group :development, :test do
   gem 'pry'
