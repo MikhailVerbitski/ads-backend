@@ -9,7 +9,7 @@ default: &default
   password: <%= ENV.fetch('ADS_DATABASE_PASSWORD') { 'mysecretpassword' } %>
   timeout: 5000
   # url: <%= ENV['DATABASE_URL'] %>
-  # socket: /tmp/.s.PGSQL.5432
+  socket: /tmp/.s.PGSQL.5432
 development:
   <<: *default
   database: ads_backend_development
