@@ -15,5 +15,8 @@ RUN bundle install --jobs 4
 # Expose port 3000 from the container
 EXPOSE 3000
 
+# Prepare entry point
+RUN chmod +x docker-entrypoint.sh
+
 # Run puma server
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

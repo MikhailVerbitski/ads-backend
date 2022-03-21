@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     when 'user'
       can :manage, Post, user_id: user.id
+      can :manage, User, id: user.id
       can :read, :all
     else
       can :read, :all

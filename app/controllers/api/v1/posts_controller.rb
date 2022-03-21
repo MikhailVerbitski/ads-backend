@@ -6,14 +6,14 @@ class Api::V1::PostsController < ApplicationController
   # def new; end
   # def edit; end
   def show
-    render json: Post.find(params[:id]).to_json
+    render json: Post.find(params[:id])
   end
 
   def create
     post = Post.new(create_params)
     post.user_id = current_user.id
     if post.save
-      render json: post.to_json, status: :ok
+      render json: post, status: :ok
     else
       render json: { message: "Can't save!" }, status: 500
     end

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :posts
-      get '/users/show', to: 'users#show', as: 'user_session_check'
+      resources :users
+      # get '/users/show', to: 'users#show', as: 'user_session_check'
     end
   end
 end
